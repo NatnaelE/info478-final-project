@@ -17,5 +17,6 @@
 
 # Technical Description
 Our final product will be a compiled RMarkdown page that will be hosted on one of our GitHub profiles.  We like the simplicity and efficiency of creating an RMarkdown resource and can still inject interactivity for specific plots of interest.  
+We will begin our analysis by processing the data and ensuring that we can easily view, navigate, and present the data.  We will then begin studying the effects of our three questions of interest, and conclude by developing the final resource that will effectively communicate the results of our analysis.
 We anticipate that our primary data management challenges will be sifting through the depth of our dataset.  Since there are 13 categories of data across each county in the United States, our primary challenge will be creating efficient representations of our data once our analysis is complete.  
 In terms of new technical skills we will learn, none of us have worked on injecting interactivity into RMarkdown without using Shiny, so we anticipate there will be a slight learning curve as we approach the conclusion of our project.

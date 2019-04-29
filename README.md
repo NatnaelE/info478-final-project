@@ -5,8 +5,18 @@
 - Who is your target audience?  Depending on the domain of your data, there may be a variety of audiences interested in using the dataset. You should hone in on one of these audiences.  
 - What should your audience learn from your resource? Please consider specific questions that your project can answer using the data you have identified (that are related to the overarching purpose)
 
+> Purpose: Analyze food insecurity in the United States.  
+> Research that has been done:  
+> What's the dataset:  https://www.ers.usda.gov/data-products/food-environment-atlas/documentation/  
+> Target audience: Policy-makers  
+> What do we want them to learn: The severity of food insecurity, factors that effect food insecurity, where resources should be allocated  
+> Three questions:
+> - Is adult obesity rate linked to socioeconomic status?  
+> - Does food insecurity vary by age?
+> - In Washington, what counties have the least amount of access to healthy food?
 
 # Technical Description
+Our final product will be a compiled RMarkdown page that will be hosted
 - What will be the format of your final product (Shiny app, HTML page, compiled .Rmd file, etc)?  
 - Do you anticipate any specific data collection / data management challenges?  
 - What new technical skills will need to learn in order to complete your project?  

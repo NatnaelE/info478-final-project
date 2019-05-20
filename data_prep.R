@@ -22,4 +22,4 @@ socioeconomic <- read_excel("./data/raw/DataDownload.xls", sheet = 13)
 
 
 # Example csv output:
-# write.csv(state_estimates, "./data/prepped/state_estimates.csv")
+# write.csv(state_estimates, "./data/prepped/state_estimates.csv", row.names = FALSE)

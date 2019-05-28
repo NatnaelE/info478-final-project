@@ -9,7 +9,9 @@ output: html_document
 library(formattable)
 library(plotly)
 
-source("./analysis.R")
+source("./analysis/sociobesity.R")
+source("./analysis/age_insecurity.R")
+source("./analysis/healthy_wash.R")
 ```
 
 ## Introduction

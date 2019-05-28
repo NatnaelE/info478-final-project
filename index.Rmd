@@ -1,0 +1,47 @@
+---
+title: "JK NP"
+author: "Natnael Eshetu, Phoebe Ng, Kyle Simpson, Joe Zhang"
+date: "5/28/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(formattable)
+library(plotly)
+
+source("./analysis.R")
+```
+
+## Introduction
+
+
+-----
+
+## Is adult obesity rate linked to socioeconomic status?
+
+
+-----
+
+## Does food insecurity vary by age?
+
+
+-----
+
+## In Washington, what counties have the least amount of access to healthy food?
+
+
+-----
+
+## Conclusions
+
+
+
+
+```{r blockone, echo=FALSE}
+# ggplotly(plotname)
+```
+
+
+``` {r blocktwo, echo=FALSE}
+# kable(tablename)
+```

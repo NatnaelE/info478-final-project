@@ -10,6 +10,7 @@ runtime: shiny
 library(formattable)
 library(plotly)
 library(knitr)
+library(usmap)
 library(shiny)
 
 # source("./analysis/sociobesity.R")
@@ -33,33 +34,55 @@ source("./analysis/healthy_wash.R")
 -----
 
 ## In Washington, what counties have the least amount of access to healthy food?
-The final way we will dissect food insecurity data is in the state of Washington.  This section will be guided by the question: "In Washington, what counties have the least amount of access to healthy food?".  We will analyze this question by comparing the ratios of fast food to full service reseaurants in each county, and by comparing the number of people served by farmers markers that accept SNAP/WIC/WICCASH/SFMNP vouchers in each county to comparatively assess the access to healthy foods per county.
+The final way we will dissect food insecurity data is in the state of Washington.  This section will be guided by the question: "In Washington, what counties have the least amount of access to healthy food?".  We will analyze this question by comparing the ratios of fast food to full service reseaurants in each county, and by comparing the number of people served by farmers markets that accept SNAP/WIC/WICCASH/SFMNP vouchers in each county to comparatively assess the access to healthy foods per county.
 
 Beginning with comparing the ratio of fast food restaurants to full service (F.F. / F.S.) to find the counties with the least access to healthy foods (i.e. the greatest proportion of fast food options to full service options), we can compute and sort by counties with the greatest proportion values.  The table below reports the top 5 counties in Washington with the least access to healthy foods based on fast food to full service restaurant proportion:
 
 ``` {r healthy1, echo=FALSE}
-kable(plot_data[order(plot_data$fast_food, decreasing = TRUE),c("county", "fast_food")][1:5,], row.names = FALSE)
+kable(plot_data[order(plot_data$fast_food, decreasing = TRUE),c("county", "fast_food")][1:5,], row.names = FALSE,
+      col.names=c("County", "Fast Food to Full Service Proportion"))
 ```
 
+The second way we will analyze the question is by comparing the number of people served by farmers markets that accept SNAP, WIC, WICCASH, and SFMNP - a series of food support programs that help families pay for food necessities.  We can again compute and sort by counties with the greatest number of people served by one farmer's market to assess the amount of healthy options available to low-income residents.  The tables below report the top 5 counties in Washington with the least access to healthy foods based on the highest proportion of county residents to markets accepting the food support program (note that some values will be equal to the population size if there aren't any markets accepting the type of food support program):
 
+``` {r healthy2, echo=FALSE}
+kable(plot_data[order(plot_data$snap, decreasing = TRUE),c("county", "snap")][1:5,], row.names = FALSE,
+      col.names = c("County", "Number of Residents per Market accepting SNAP"))
+```
+``` {r healthy3, echo=FALSE}
+kable(plot_data[order(plot_data$wic, decreasing = TRUE),c("county", "wic")][1:5,], row.names = FALSE,
+      col.names = c("County", "Number of Residents per Market accepting WIC"))
+```
+``` {r healthy4, echo=FALSE}
+kable(plot_data[order(plot_data$wiccash, decreasing = TRUE),c("county", "wiccash")][1:5,], row.names = FALSE,
+      col.names = c("County", "Number of Residents per Market accepting WIC CASH"))
+```
+``` {r healthy5, echo=FALSE}
+kable(plot_data[order(plot_data$sfmnp, decreasing = TRUE),c("county", "sfmnp")][1:5,], row.names = FALSE,
+      col.names = c("County", "Number of Residents per Market accepting SFMNP"))
+```
 
-``` {r shinyblock, echo=FALSE}
-# selectInput("metric", "Chose a metric",
-#             choices=c("fast_food", "snap", "wic", "wiccash", "sfmnp"),
-#             selected="fast_food")
-# 
-# renderPlotly({
-#   plot <- plot_usmap(data=plot_data, values=input$metric, regions="counties", 
-#                        include=fast_v_full$fips, aes(tooltip=county)) +
-#             theme(legend.position = "none",
-#                   axis.title.x = element_blank(),
-#                   axis.ticks.x = element_blank(),
-#                   axis.text.x = element_blank(),
-#                   axis.title.y = element_blank(),
-#                   axis.ticks.y = element_blank(),
-#                   axis.text.y = element_blank())
-#   ggplotly(plot)
-# })
+From each of these tables we see some counties that frequently appear as counties with low access to healthy foods (as measured by these metrics).  **Benton County**, **Spokane County**, **Grant County**, and **Snohomish County** are all in at least three of these tables, indicating that these may be high risk areas for unhealthy tendencies and health risks.
+
+The final way we will visualize our data is through an interactive county-level map.  In the map below, you can change the metric of evaluation using the dropdown and hover over individual counties to see the name of the county and the metric data in that county.
+
+``` {r healthy6, echo=FALSE}
+selectInput("metric", "Chose a metric",
+            choices=c("fast_food", "snap", "wic", "wiccash", "sfmnp"),
+            selected="fast_food")
+
+renderPlotly({
+  plot <- plot_usmap(data=plot_data, values=input$metric, regions="counties",
+                       include=fast_v_full$fips, aes(tooltip=county)) +
+            theme(legend.position = "none",
+                  axis.title.x = element_blank(),
+                  axis.ticks.x = element_blank(),
+                  axis.text.x = element_blank(),
+                  axis.title.y = element_blank(),
+                  axis.ticks.y = element_blank(),
+                  axis.text.y = element_blank())
+  ggplotly(plot)
+})
 ```
 
 -----

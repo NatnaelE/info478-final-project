@@ -3,14 +3,17 @@ title: "JK NP"
 author: "Natnael Eshetu, Phoebe Ng, Kyle Simpson, Joe Zhang"
 date: "5/28/2019"
 output: html_document
+runtime: shiny
 ---
 
 ```{r setup, include=FALSE}
 library(formattable)
 library(plotly)
+library(knitr)
+library(shiny)
 
-source("./analysis/sociobesity.R")
-source("./analysis/age_insecurity.R")
+# source("./analysis/sociobesity.R")
+# source("./analysis/age_insecurity.R")
 source("./analysis/healthy_wash.R")
 ```
 
@@ -30,7 +33,34 @@ source("./analysis/healthy_wash.R")
 -----
 
 ## In Washington, what counties have the least amount of access to healthy food?
+The final way we will dissect food insecurity data is in the state of Washington.  This section will be guided by the question: "In Washington, what counties have the least amount of access to healthy food?".  We will analyze this question by comparing the ratios of fast food to full service reseaurants in each county, and by comparing the number of people served by farmers markers that accept SNAP/WIC/WICCASH/SFMNP vouchers in each county to comparatively assess the access to healthy foods per county.
 
+Beginning with comparing the ratio of fast food restaurants to full service (F.F. / F.S.) to find the counties with the least access to healthy foods (i.e. the greatest proportion of fast food options to full service options), we can compute and sort by counties with the greatest proportion values.  The table below reports the top 5 counties in Washington with the least access to healthy foods based on fast food to full service restaurant proportion:
+
+``` {r healthy1, echo=FALSE}
+kable(plot_data[order(plot_data$fast_food, decreasing = TRUE),c("county", "fast_food")][1:5,], row.names = FALSE)
+```
+
+
+
+``` {r shinyblock, echo=FALSE}
+# selectInput("metric", "Chose a metric",
+#             choices=c("fast_food", "snap", "wic", "wiccash", "sfmnp"),
+#             selected="fast_food")
+# 
+# renderPlotly({
+#   plot <- plot_usmap(data=plot_data, values=input$metric, regions="counties", 
+#                        include=fast_v_full$fips, aes(tooltip=county)) +
+#             theme(legend.position = "none",
+#                   axis.title.x = element_blank(),
+#                   axis.ticks.x = element_blank(),
+#                   axis.text.x = element_blank(),
+#                   axis.title.y = element_blank(),
+#                   axis.ticks.y = element_blank(),
+#                   axis.text.y = element_blank())
+#   ggplotly(plot)
+# })
+```
 
 -----
 
@@ -47,3 +77,7 @@ source("./analysis/healthy_wash.R")
 ``` {r blocktwo, echo=FALSE}
 # kable(tablename)
 ```
+
+
+
+

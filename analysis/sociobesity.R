@@ -5,9 +5,9 @@ library(plotly)
 #########################################################################
 ######### Is adult obesity rate linked to socioeconomic status? ######### 
 #########################################################################
+setwd("C:/Users/natna/Desktop/info478-final-project")
+sociobesity <- read.csv("data/prepped/sociobesity.csv", stringsAsFactors = FALSE)
 
-sociobesity <- read.csv("./data/prepped/sociobesity.csv", stringsAsFactors = FALSE)
-View(sociobesity)
 
 # Column Variables:
   # Name                | Desc.                                           | Datatype/Unit of Measurement

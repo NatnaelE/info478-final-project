@@ -23,15 +23,39 @@ source("analysis/healthy_wash.R")
 
 -----
 
-## Is adult obesity rate linked to socioeconomic status?
+## Is socioeconomic status linked to adult obesity rates?
 The first way we will look at food insecurity data is by looking at socioeconomic status and healthy lifestyles, by asking the question: "Is adult obesity rate linked to socioeconomic status?". We will analyze the strength of the correlation between the poverty rates and adult obesity rates, along with the correlation between median household income and adult obesity rates at both the county and state level, to see if there is any real connection between socioeconomic status and adult obesity rates. 
 
 The first way we look at the relationship is by calculating the correlation coefficient between adult poverty rates, and obesity rates at the state level. Which reveals a coefficient of `r state_level_correlation`, which proves to be a moderate positive correlation, which means that there is some relationship between poverty and obesity at the state level. 
+
 ``` {r obesity1, echo=FALSE}
 state_level_correlation_plot
 ```
 
+The second way we look at the relationship is by focusing on the correlation at the county level. The correlation coefficient of `r county_level_correlation`, is still moderately positive, however it is clear to see that there are certain trends and relationships. Such as there are no counties with an adult poverty rate less than 10% with a obesity rate greater than 40%, and there are no counties with an adult poverty rate greater than 40% with an obesity rate less than 30%
 
+``` {r obesity2, echo=FALSE}
+county_level_correlation_plot
+```
+
+The third way we look at the relationship is by comparing both sides of the poverty spectrum. We look at the top ten counties with the highest and lowest poverty rates, along with their obesity rates. Both sides of the spectrum show clear trends in obesity, and difference in healthy lifestyles.
+``` {r obesity3, echo=FALSE}
+kable(highest_poverty, col.names = c("State", "County", "Poverty Rate", "Adult Obesity Rate"))
+```
+``` {r obesity4, echo=FALSE}
+kable(lowest_poverty, col.names = c("State", "County", "Poverty Rate", "Adult Obesity Rate"))
+```
+
+Another way to look at the link between socio economic status and obesity is through the lens of household income. The correlation between median household income and obesity is moderately strong with a coefficient of `r income_correlation`, showing that the lower the income the greater the rates of obesity, and vice versa. 
+
+``` {r obesity5, echo=FALSE}
+income_correlation_plot
+```
+
+Finally we look at the data through an interactive map of all the US counties that provided data for analysis. One map contains the counties and their adult obesity rates, while the second map contains displays counties and a variable socioeconomic factor. This visualization helps show the trends in the different regions of the united states, parts of each state and how the obesity rates correlate to the various socioeconomic rates.
+
+
+After looking at this data in various ways, there is no one socio economic factor that we can use as the major cause of obesity. However, we can acknowledge the boundaries that people of lower socioeconomic status/economic status face when it comes to staying healthy. Poorer families and people often face the problems of choosing high-fat foods dense with energy due to their affordability, living in food deserts where healthy foods are hard to find, economic insecurity, activities being unavailable or unaffordable, which all can contribute to obesity. Which means that there is definitely some link, however with all types of cofounding variables from location, climate, safety, and many other things that vary from area to area its hard to say what exactly is the cause of obesity across the united states, or even at the county level.  
 
 -----
 

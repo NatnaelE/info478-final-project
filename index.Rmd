@@ -13,9 +13,9 @@ library(knitr)
 library(usmap)
 library(shiny)
 
-# source("./analysis/sociobesity.R")
+ source("analysis/sociobesity.R")
 # source("./analysis/age_insecurity.R")
-source("./analysis/healthy_wash.R")
+source("analysis/healthy_wash.R")
 ```
 
 ## Introduction
@@ -24,6 +24,13 @@ source("./analysis/healthy_wash.R")
 -----
 
 ## Is adult obesity rate linked to socioeconomic status?
+The first way we will look at food insecurity data is by looking at socioeconomic status and healthy lifestyles, by asking the question: "Is adult obesity rate linked to socioeconomic status?". We will analyze the strength of the correlation between the poverty rates and adult obesity rates, along with the correlation between median household income and adult obesity rates at both the county and state level, to see if there is any real connection between socioeconomic status and adult obesity rates. 
+
+The first way we look at the relationship is by calculating the correlation coefficient between adult poverty rates, and obesity rates at the state level. Which reveals a coefficient of `r state_level_correlation`, which proves to be a moderate positive correlation, which means that there is some relationship between poverty and obesity at the state level. 
+``` {r obesity1, echo=FALSE}
+state_level_correlation_plot
+```
+
 
 
 -----

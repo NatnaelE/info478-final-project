@@ -20,9 +20,9 @@ library(plotly)
 library(usmap)
 library(choroplethr)
 library(choroplethrMaps)
- source("analysis/sociobesity.R")
-source("analysis/age_insecurity.R")
-source("analysis/healthy_wash.R")
+ source("./analysis/sociobesity.R")
+source("./analysis/age_insecurity.R")
+source("./analysis/healthy_wash.R")
 ```
 
 ## Introduction
@@ -103,6 +103,7 @@ The next way we can approach the food insecurity data is to observe the age brea
 
 One thing to note first is that children are unable to provide for themselves, so oftentimes a family/adult unable to feed themselves properly will also have trouble providing for their youth too.
 
+The first 
 <!-- The first way we look at the relationship is by calculating the correlation coefficient between adult poverty rates, and obesity rates at the state level. Which reveals a coefficient of `r state_level_correlation`, which proves to be a moderate positive correlation, which means that there is some relationship between poverty and obesity at the state level.  -->
 
 ```{r insec1, echo=FALSE, message=FALSE, comment=FALSE, warning=FALSE}
@@ -110,7 +111,7 @@ One thing to note first is that children are unable to provide for themselves, s
 ```
 
 
-```{r insec1, echo=FALSE, message=FALSE, comment=FALSE, warning=FALSE}
+```{r insec2, echo=FALSE, message=FALSE, comment=FALSE, warning=FALSE}
 
 ```
 

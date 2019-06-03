@@ -9,7 +9,7 @@ library(choroplethrMaps)
 #########################################################################
 ######### Is adult obesity rate linked to socioeconomic status? ######### 
 #########################################################################
-setwd("C:/Users/natna/Desktop/info478-final-project")
+# setwd("C:/Users/natna/Desktop/info478-final-project")
 sociobesity <- read.csv("data/prepped/sociobesity.csv", stringsAsFactors = FALSE)
 
 obese_full <- read_excel("data/raw/DataDownload.xls", sheet = 12)

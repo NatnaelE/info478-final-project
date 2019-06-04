@@ -41,16 +41,16 @@ write.csv(sociobesity, "./data/prepped/sociobesity.csv", row.names = FALSE)
 # age-insecurity csv
   # county, insecurity, access
 insecurity <- insecurity[, c("FIPS", "State", "County", "FOODINSEC_13_15", "CH_FOODINSEC_12_15")]
-access <- access[, c("FIPS", "State", "County", "LACCESS_POP15", "LACCESS_CHILD15", 
-                     "LACCESS_SENIORS15")]
+access <- access[, c("FIPS", "State", "County", "LACCESS_POP15", "PCT_LACCESS_POP15", "LACCESS_CHILD15", "PCT_LACCESS_CHILD15",
+                     "LACCESS_SENIORS15", "PCT_LACCESS_SENIORS15")]
 age_insecurity <- merge(county, insecurity, by="FIPS") %>%
   merge(access, by="FIPS")
 age_insecurity <- age_insecurity[, c("FIPS", "State", "County", "Population Estimate, 2015",
-                                     "FOODINSEC_13_15", "CH_FOODINSEC_12_15", "LACCESS_POP15",
-                                     "LACCESS_CHILD15", "LACCESS_SENIORS15")]
+                                     "FOODINSEC_13_15", "CH_FOODINSEC_12_15", "LACCESS_POP15", "PCT_LACCESS_POP15",
+                                     "LACCESS_CHILD15", "PCT_LACCESS_CHILD15", "LACCESS_SENIORS15", "PCT_LACCESS_SENIORS15")]
 colnames(age_insecurity) <- c("FIPS", "State", "County", "Pop_2015",
-                              "State_Food_Insec_15", "State_Child_Food_Insec_15", "Pop_Low_Access_2015",
-                              "Child_Low_Access_2015", "Senior_Low_Access_2015")
+                              "State_Food_Insec_15", "State_Child_Food_Insec_15", "Pop_Low_Access_2015", "Pop_Low_Acc_Pct_2015",
+                              "Child_Low_Access_2015", "Child_Low_Acc_Pct_2015", "Senior_Low_Access_2015", "Senior_Low_Acc_Pct_2015")
 write.csv(age_insecurity, "./data/prepped/age_insecurity.csv", row.names = FALSE)
 
 

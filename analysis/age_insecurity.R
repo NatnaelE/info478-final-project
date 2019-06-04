@@ -6,7 +6,7 @@ library(plotly)
 ####### Does food insecurity vary by age? #######
 #################################################
 
-age_insecurity <- read.csv("../data/prepped/age_insecurity.csv", stringsAsFactors = FALSE)
+age_insec <- read.csv("../data/prepped/age_insecurity.csv", stringsAsFactors = FALSE)
 View(age_insecurity)
 
 # Column Variables:
@@ -31,9 +31,21 @@ View(age_insecurity)
   # Senior_Low_Access_2015    | Seniors w/low access to store in 2015           | Count of seniors
 
 
-# Analysis
-colnames(age_insecurity)
+# Pop_Low_Access--- Definition: Number of people in a county living more than 1 mile from a supermarket or large grocery store 
+# if in an urban area, or more than 10 miles from a supermarket or large grocery store if in a rural area.
 
+# Child_Low_Access--- Definition: Number of children (age < 18) in a county living more than 1 mile from a supermarket or large 
+# grocery store if in an urban area, or more than 10 miles from a supermarket or large grocery store if in a rural area.
+
+# Senior_Low_Access--- Definition: Number of seniors (age > 64) in a county living more than 1 mile from a supermarket or large 
+# grocery store if in an urban area, or more than 10 miles from a supermarket or large grocery store if in a rural area.
+
+
+
+# Analysis
+state_data <- age_insec %>% group_by(State) %>% 
+  summarise(average_poverty = mean(Pov_Rate_2015),
+            average_obesity = mean(Percent_Of_Obese_Adults)) %>% na.omit()
 
 
 

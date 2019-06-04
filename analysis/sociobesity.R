@@ -4,15 +4,13 @@ library(plotly)
 library(readxl)
 library(plotly)
 library(usmap)
-library(choroplethr)
-library(choroplethrMaps)
 #########################################################################
 ######### Is adult obesity rate linked to socioeconomic status? ######### 
 #########################################################################
 # setwd("C:/Users/natna/Desktop/info478-final-project")
-sociobesity <- read.csv("data/prepped/sociobesity.csv", stringsAsFactors = FALSE)
+sociobesity <- read.csv("./data/prepped/sociobesity.csv", stringsAsFactors = FALSE)
 
-obese_full <- read_excel("data/raw/DataDownload.xls", sheet = 12)
+obese_full <- read_excel("./data/raw/DataDownload.xls", sheet = 12)
 obese_full <- obese_full %>% select(County, State, PCT_OBESE_ADULTS13)
 
 work_data <- left_join(sociobesity, obese_full) %>%  na.omit()

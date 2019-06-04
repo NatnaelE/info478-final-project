@@ -14,15 +14,9 @@ library(usmap)
 library(shiny)
 library(dplyr)
 library(ggplot2)
-library(plotly)
-library(readxl)
-library(plotly)
-library(usmap)
-library(choroplethr)
-library(choroplethrMaps)
- source("./analysis/sociobesity.R")
-source("./analysis/age_insecurity.R")
-source("./analysis/healthy_wash.R")
+source("analysis/sociobesity.R")
+source("analysis/age_insecurity.R")
+source("analysis/healthy_wash.R")
 ```
 
 ## Introduction
@@ -62,7 +56,7 @@ income_correlation_plot
 Finally we look at the data through an interactive map of all the US counties that provided data for analysis. One map contains the counties and their adult obesity rates, while the second map contains displays counties and a variable socioeconomic factor. This visualization helps show the trends in the different regions of the united states, parts of each state and how the obesity rates correlate to the various socioeconomic rates.
 ``` {r obesity6, echo=FALSE}
 selectInput("Economic_Factor", "Chose a metric",
-            choices=c("Med_HH_Income_2015 ", "Pov_Rate_2015", "Child_Pov_Rate_2015"),
+            choices=c("Med_HH_Income_2015", "Pov_Rate_2015", "Child_Pov_Rate_2015", "Percent_Of_Obese_Adults"),
             selected="Pov_Rate_2015")
 renderPlotly({
   obese_comp_plot <- plot_usmap(data=work_data, values=input$Economic_Factor, regions="counties",
@@ -77,21 +71,6 @@ renderPlotly({
     scale_fill_continuous(low = "blue", high = "yellow", guide = FALSE)
   ggplotly(obese_comp_plot)
 })
-```
-
-``` {r obesity7, echo=FALSE}
-county_obesity_plot <- plot_usmap(data=work_data, values="Percent_Of_Obese_Adults", regions="counties",
-                        include=work_data$fips, aes(label=County, label2=Percent_Of_Obese_Adults)) +
-             theme(legend.position = "none",
-                   axis.title.x = element_blank(),
-                   axis.ticks.x = element_blank(),
-                   axis.text.x = element_blank(),
-                   axis.title.y = element_blank(),
-                   axis.ticks.y = element_blank(),
-                   axis.text.y = element_blank()) +
-  scale_fill_continuous(low = "blue", high = "yellow", guide = FALSE)
-
- ggplotly(county_obesity_plot, tooltip = c("County", "Percent_Of_Obese_Adults"))
 ```
 
 After looking at this data in various ways, there is no one socio economic factor that we can use as the major cause of obesity. However, we can acknowledge the boundaries that people of lower socioeconomic status/economic status face when it comes to staying healthy. Poorer families and people often face the problems of choosing high-fat foods dense with energy due to their affordability, living in food deserts where healthy foods are hard to find, economic insecurity, activities being unavailable or unaffordable, which all can contribute to obesity. Which means that there is definitely some link, however with all types of cofounding variables from location, climate, safety, and many other things that vary from area to area its hard to say what exactly is the cause of obesity across the united states, or even at the county level.  
@@ -115,6 +94,44 @@ The first
 
 ```
 
+
+``` {r insec3, echo=FALSE}
+selectInput("W0t", "Chose a metric",
+            choices=c("State_Food_Insec_15", "State_Child_Food_Insec_15", "Pop_Low_Access_2015", "Child_Low_Access_2015", Senior_Low_Access_2015),
+            selected="Pop_Low_Access_2015")
+renderPlotly({
+  ya_plot <- plot_usmap(data=++++++++++++++++++++, values=input$w0t, regions="counties",
+                       include=+++++++++++$fips, aes(tooltip=county)) +
+            theme(legend.position = "none",
+                  axis.title.x = element_blank(),
+                  axis.ticks.x = element_blank(),
+                  axis.text.x = element_blank(),
+                  axis.title.y = element_blank(),
+                  axis.ticks.y = element_blank(),
+                  axis.text.y = element_blank())+
+    scale_fill_continuous(low = "purple", high = "orange", guide = FALSE)
+  ggplotly(ya_plot)
+})
+```
+
+``` {r healthy6, echo=FALSE}
+selectInput("metric", "Chose a metric",
+            choices=c("fast_food", "snap", "wic", "wiccash", "sfmnp"),
+            selected="fast_food")
+
+renderPlotly({
+  plot <- plot_usmap(data=plot_data, values=input$metric, regions="counties",
+                       include=fast_v_full$fips, aes(tooltip=county)) +
+            theme(legend.position = "none",
+                  axis.title.x = element_blank(),
+                  axis.ticks.x = element_blank(),
+                  axis.text.x = element_blank(),
+                  axis.title.y = element_blank(),
+                  axis.ticks.y = element_blank(),
+                  axis.text.y = element_blank())
+  ggplotly(plot)
+})
+```
 -----
 
 ## In Washington, what counties have the least amount of access to healthy food?

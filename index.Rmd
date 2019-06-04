@@ -95,43 +95,25 @@ The first
 ```
 
 
-``` {r insec3, echo=FALSE}
-selectInput("W0t", "Chose a metric",
-            choices=c("State_Food_Insec_15", "State_Child_Food_Insec_15", "Pop_Low_Access_2015", "Child_Low_Access_2015", Senior_Low_Access_2015),
-            selected="Pop_Low_Access_2015")
-renderPlotly({
-  ya_plot <- plot_usmap(data=++++++++++++++++++++, values=input$w0t, regions="counties",
-                       include=+++++++++++$fips, aes(tooltip=county)) +
-            theme(legend.position = "none",
-                  axis.title.x = element_blank(),
-                  axis.ticks.x = element_blank(),
-                  axis.text.x = element_blank(),
-                  axis.title.y = element_blank(),
-                  axis.ticks.y = element_blank(),
-                  axis.text.y = element_blank())+
-    scale_fill_continuous(low = "purple", high = "orange", guide = FALSE)
-  ggplotly(ya_plot)
-})
-```
+# ``` {r insec3, echo=FALSE}
+# selectInput("W0t", "Chose a metric",
+#             choices=c("State_Food_Insec_15", "State_Child_Food_Insec_15", "Pop_Low_Access_2015", "Child_Low_Access_2015", "Senior_Low_Access_2015"),
+#             selected="Pop_Low_Access_2015")
+# renderPlotly({
+#   ya_plot <- plot_usmap(data=++++++++++++++++++++, values=input$w0t, regions="counties",
+#                        include=+++++++++++$fips, aes(tooltip=county)) +
+#             theme(legend.position = "none",
+#                   axis.title.x = element_blank(),
+#                   axis.ticks.x = element_blank(),
+#                   axis.text.x = element_blank(),
+#                   axis.title.y = element_blank(),
+#                   axis.ticks.y = element_blank(),
+#                   axis.text.y = element_blank())+
+#     scale_fill_continuous(low = "purple", high = "orange", guide = FALSE)
+#   ggplotly(ya_plot)
+# })
+# ```
 
-``` {r healthy6, echo=FALSE}
-selectInput("metric", "Chose a metric",
-            choices=c("fast_food", "snap", "wic", "wiccash", "sfmnp"),
-            selected="fast_food")
-
-renderPlotly({
-  plot <- plot_usmap(data=plot_data, values=input$metric, regions="counties",
-                       include=fast_v_full$fips, aes(tooltip=county)) +
-            theme(legend.position = "none",
-                  axis.title.x = element_blank(),
-                  axis.ticks.x = element_blank(),
-                  axis.text.x = element_blank(),
-                  axis.title.y = element_blank(),
-                  axis.ticks.y = element_blank(),
-                  axis.text.y = element_blank())
-  ggplotly(plot)
-})
-```
 -----
 
 ## In Washington, what counties have the least amount of access to healthy food?

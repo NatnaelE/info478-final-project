@@ -7,6 +7,7 @@ library(plotly)
 #################################################
 
 age_insec <- read.csv("./data/prepped/age_insecurity.csv", stringsAsFactors = FALSE) %>% na.omit()
+colnames(age_insec)[colnames(age_insec)=="FIPS"] <- "fips"
 # View(age_insec)
 
 # Column Variables:

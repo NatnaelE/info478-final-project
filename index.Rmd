@@ -113,13 +113,13 @@ pop_senior_plot
 The slope of this comparison appears to be slightly smaller for seniors, which makes sense as most elders who have pushed out their life span should be financially stable. This is consistent with the findings of the average percentages. Adults suffer a statistically larger impact than children and seniors as independents responsible for their own meal intake and financial income. Finally, this interative US map of state counties provides a visual breakdown of food insecurity by state and the rates of low access to food. The dropdown selection allows you to select which metric data you wish to view about the nation's counties.
 
 ``` {r insec5, echo=FALSE}
-selectInput("W0t", "Chose a metric",
+selectInput("w0t", "Chose a metric",
            choices=c("State_Food_Insec_15", "State_Child_Food_Insec_15", "Pop_Low_Acc_Pct_2015", "Child_Low_Acc_Pct_2015", "Senior_Low_Acc_Pct_2015"),
             selected="Pop_Low_Acc_Pct_2015")
 renderPlotly({
   ya_plot <- plot_usmap(data=age_insec, values=input$w0t, regions="counties",
                        include=age_insec$fips, aes(tooltip=county)) +
-            theme(legend.position = "none",
+            theme(legend.position = "right",
                   axis.title.x = element_blank(),
                   axis.ticks.x = element_blank(),
                   axis.text.x = element_blank(),

@@ -21,6 +21,9 @@ source("analysis/healthy_wash.R")
 
 ## Introduction
 
+According to Feeding America in 2017, 1 in 8 Americans were food insecure, which equates to about 40 million people including 12 million children. Being food insecure is defined by the US Department of Agriculture as "lacking reliable access to a sufficient quantity of affordable, nutritious food". Food insecurity does not only affect those who are homeless or low-income, but it impacts many other populations like seniors, children, people who live in rural communities, African Americans, and Latinos. There are also many people who live above the poverty line who still experience food insecurity too. With some basic knowledge and understanding of food insecurity, we wanted to analyze a few specific variables to understand this issue more. This analysis will be guided by these three questions: is adult obesity rate linked to socioeconomic status, does food insecurity vary by age, and in Washington what counties have the least amount of access to healthy food?
+To answer these questions we used data from the United States Department of Agriculture that looks at food insecurity and different variables such as socioeconomic characteristics, store and restaurant availability, food insecure population by age and more. This set provides data about these variables on the state level and also is broken up by counties.
+To help those who are impacted by food insecurity, the Supplemental Nutrition Assistance Program (SNAP), provides grocery vouchers to those who qualify. About 13% of the US population participates in this government program and the research conducted in this report can help define that demographic. Analyzing the groups of people who are most impacted will provide evidence to help policymakers make future decisions regarding food insecurity.
 
 -----
 
@@ -189,18 +192,12 @@ renderPlotly({
 
 ## Conclusions
 
+In this report, data from the United States Department of Agriculture analyzed food insecurity by different variables: socioeconomic status, age, and state, specifically Washington.
 
+To evaluate if socioeconomic status was related to food insecurity, poverty rates and obesity rates were compared on a state level and on a country level. To provide more clarity about the relationship by county, the top ten counties with the highest and lowest poverty and obesity rates were found. These findings all show a positive correlation between adult obesity rates and poverty rates, meaning that poorer families are faced with more challenges and less opportunity to practice a healthy lifestyle. People of of lower-middle class often do not have the means, health education, or access to healthy foods.
 
+This report examined food insecurity by age groups to further analyze food security in the United States. Breaking up the data into those under the age of 18 to be considered children, over 64 to be seniors, and the ages range between to be adults. By graphing the slope of the population with low access to food by the different age ranges with low access to food, it was found that there is a positive correlation for both age groups. Children with low access had a greater slope than the seniors, and this could be due to the fact that children are usually dependant on an adult while seniors are not.
 
-```{r blockone, echo=FALSE}
-# ggplotly(plotname)
-```
+The difference between food insecurity and hunger is that food insecurity focuses on how accessible nutritious foods are and hunger is a feeling. To measure access, the ratio of fast food restaurants and full service restaurants was calculated by each county in Washington state. The top 5 counties with a greater proportion of fast food restaurants to full service restaurants were reported above. It indicates Lincoln, Adams, Whitman, Franklin and Grant county have more options for their citizens that are not nutritious. This could be because these counties are more rural areas with less access to fresh foods, or because average income of the residents there is a demand for more affordable food options. Another way to measure access is to look at the counties with the highest number of residents accepting government food support programs. The top 5 counties reported show that Benton, Spokane, Grant, and Snohomish county appear in each table, meaning they are utilizing this government resource the most. High utilization means that there is a larger population that is impacted by food insecurity.
 
-
-``` {r blocktwo, echo=FALSE}
-# kable(tablename)
-```
-
-
-
-
+These results conclude that there is a relationship between socioeconomic status, age, access and food insecurity. Food security is a multifaceted problem that can be caused by many social determinants and we cannot pinpoint just one. The findings of this report sheds light on smaller details that people need to take in consideration when trying to eradicate a complex population health issue of food insecurity.

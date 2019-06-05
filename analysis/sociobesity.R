@@ -17,6 +17,8 @@ work_data <- left_join(sociobesity, obese_full) %>%  na.omit()
 colnames(work_data)[colnames(work_data)=="FIPS"] <- "fips"
 colnames(work_data)[colnames(work_data)=="PCT_OBESE_ADULTS13"] <- "Percent_Of_Obese_Adults"
 
+# View(sociobesity)
+
 # Column Variables:
   # Name                | Desc.                                           | Datatype/Unit of Measurement
   # --------------------|-------------------------------------------------|--------------------------------

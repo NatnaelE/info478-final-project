@@ -6,8 +6,8 @@ library(plotly)
 ####### Does food insecurity vary by age? #######
 #################################################
 
-age_insec <- read.csv("../data/prepped/age_insecurity.csv", stringsAsFactors = FALSE) %>% na.omit()
-View(age_insecurity)
+age_insec <- read.csv("./data/prepped/age_insecurity.csv", stringsAsFactors = FALSE) %>% na.omit()
+# View(age_insec)
 
 # Column Variables:
   # Name                      | Desc.                                           | Datatype/Unit of Measurement

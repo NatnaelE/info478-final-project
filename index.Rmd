@@ -95,7 +95,7 @@ kable(low_child_access, col.names = c("State", "County", "Child Low Access %", "
 kable(low_senior_access, col.names = c("State", "County", "Senior Low Access %", "Population", "Senior Low Access"), caption = "Senior Low Access 2015")
 ```
 
-While these are a view of the upper range of the respective percentages, the converse can be expected, with certain counties having proportionally little to no issues with low access. A quick summarization of the percentage columns can generalize the national average of low access in a population to be `r pop_low_access`%. For children, this mean value would be `r child_low_access`%, and `r senior_low_access`% for seniors. 
+While these are a view of the upper range of the respective percentages, the converse can be expected, with certain counties having proportionally little to no issues with low access. A quick summarization of the percentage columns can generalize the national average of low access in a population to be `r pop_la_mean`%. For children, this mean value would be `r child_la_mean`%, and `r senior_la_mean`% for seniors. 
 
 We could stop here and assume that based off these averages, adults face the most food insecurity, followed by children, and finally seniors. However, we can approach it through ratios of these percentages in comparison to view the trend and correlation of accessibility between the groups. The county population low access has a higher count so children/seniors will be evaluated against that column. First, we can look at the ratio of children cases of low access to food and stores to adult population cases:
 

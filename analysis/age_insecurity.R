@@ -6,7 +6,7 @@ library(plotly)
 ####### Does food insecurity vary by age? #######
 #################################################
 
-age_insec <- read.csv("../data/prepped/age_insecurity.csv", stringsAsFactors = FALSE)
+age_insec <- read.csv("../data/prepped/age_insecurity.csv", stringsAsFactors = FALSE) %>% na.omit()
 View(age_insecurity)
 
 # Column Variables:
@@ -43,15 +43,44 @@ View(age_insecurity)
 
 
 # Analysis
-state_data <- age_insec %>% group_by(State) %>% 
-  summarise(average_poverty = mean(Pov_Rate_2015),
-            average_obesity = mean(Percent_Of_Obese_Adults)) %>% na.omit()
 
+# state_data <- age_insec %>% group_by(State) %>% 
+#   summarise(average_poverty = mean(Pov_Rate_2015),
+#             average_obesity = mean(Percent_Of_Obese_Adults)) %>% na.omit()
+proof_plot <- ggplot(age_insec, aes(x=State_Food_Insec_15, y=State_Child_Food_Insec_15)) +
+  geom_point(shape=1) +
+  geom_smooth(method=lm) +
+  labs(title = "State-wide Household Food Insecurity Vs. State-wide Child Food Insecurity in 2015",
+       x = "Household Food Insecurity %",
+       y = "Child Food Insecurity %")
 
+lowest_access <- age_insec %>% arrange(-Pop_Low_Acc_Pct_2015) %>% head(7) %>% select(State, County, Pop_Low_Acc_Pct_2015, Pop_2015, Pop_Low_Access_2015)
 
+low_child_access <- age_insec %>% arrange(-Child_Low_Acc_Pct_2015) %>% head(7) %>% select(State, County, Child_Low_Acc_Pct_2015, Pop_2015, Child_Low_Access_2015)
 
+low_senior_access <- age_insec %>% arrange(-Senior_Low_Acc_Pct_2015) %>% head(7) %>% select(State, County, Senior_Low_Acc_Pct_2015, Pop_2015, Senior_Low_Access_2015)
+
+pop_la_mean <- mean(age_insec$Pop_Low_Acc_Pct_2015)
+
+child_la_mean <- mean(age_insec$Child_Low_Acc_Pct_2015)
+
+senior_la_mean <- mean(age_insec$Senior_Low_Acc_Pct_2015)
+
+pop_child_plot <- ggplot(age_insec, aes(x=Pop_Low_Acc_Pct_2015, y=Child_Low_Acc_Pct_2015)) +
+  geom_point(shape=1) +
+  geom_smooth(method=lm) +
+  labs(title = "Population with Low Access to Store Vs. Children with Low Access to Store in 2015",
+       x = "Population Low Access %",
+       y = "Child Low Access %")
+
+pop_senior_plot <- ggplot(age_insec, aes(x=Pop_Low_Acc_Pct_2015, y=Senior_Low_Acc_Pct_2015)) +
+  geom_point(shape=1) +
+  geom_smooth(method=lm) +
+  labs(title = "Population with Low Access to Store Vs. Seniors with Low Access to Store in 2015",
+       x = "Population Low Access %",
+       y = "Senior Low Access %")
 
 # Vis
-age_insec_plot <- ggplot()
+#age_insec_plot <- ggplot()
 
 

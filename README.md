@@ -1,3 +1,4 @@
+**Link to Site: https://kyle-simpson.shinyapps.io/index/** 
 # Project Description
 According to Feeding America in 2017, 1 in 8 Americans are food insecure, which equates to 40 million people. Being food insecure is defined as "lacking reliable access to a sufficient quantity of affordable, nutritious food". The purpose of this project is to analyze food insecurity in the United States and interpret patterns we may find in the data. We hope to make impactful visualizations that will bring light to the public health issue of food insecurity in the US and in specific states.
 
